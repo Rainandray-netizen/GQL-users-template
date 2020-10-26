@@ -9,7 +9,8 @@ const { DB_CONNECTION } = process.env
 
 const server = new apollo.ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: ({ req }) => ({ req })
 })
 
 mongoose.connect(DB_CONNECTION, { useNewUrlParser: true })
